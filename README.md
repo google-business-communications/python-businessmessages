@@ -25,7 +25,7 @@ The documentation for the Business Messages API can be found [here](https://deve
 ```
 python -m venv <your-env>
 source <your-env>/bin/activate
-<your-env>/bin/pip install
+<your-env>/bin/pip install google-businessmessages
 ```
 
 #### Windows
@@ -33,7 +33,7 @@ source <your-env>/bin/activate
 ```
 python -m venv <your-env>
 <your-env>\Scripts\activate
-<your-env>\Scripts\pip.exe install
+<your-env>\Scripts\pip.exe install google-businessmessages
 ```
 
 ### Supported Python Versions
