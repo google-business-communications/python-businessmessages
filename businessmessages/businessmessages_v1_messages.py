@@ -1,17 +1,3 @@
-# Copyright 2020 Google LLC. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 """Generated message classes for businessmessages version v1.
 
 """
@@ -58,8 +44,8 @@ class BusinessMessagesCarouselCard(_messages.Message):
 
     Values:
       CARD_WIDTH_UNSPECIFIED: Not specified
-      SMALL: 120 DP. Can't include tall media.
-      MEDIUM: 232 DP.
+      SMALL: 136 DP. Can't include tall media.
+      MEDIUM: 280 DP.
     """
     CARD_WIDTH_UNSPECIFIED = 0
     SMALL = 1
@@ -78,14 +64,14 @@ class BusinessMessagesContentInfo(_messages.Message):
     fileUrl: Publicly reachable URL of the file. The platform determines the
       MIME type of the file from the content-type field in the HTTP headers
       when the platform fetches the file. The content-type field must be
-      present and accurate in the HTTP response from the URL.  Maximum 5 MB.
+      present and accurate in the HTTP response from the URL. Maximum 5 MB.
       Supported content types: image/jpeg, image/jpg, image/png
     forceRefresh: If set, the platform fetches the file and thumbnail from the
       specified URLs, even if the platform has cached copies of the file
       (and/or of the thumbnail).
-    thumbnailUrl: Optional. Publicly reachable URL of the thumbnail.  If you
+    thumbnailUrl: Optional. Publicly reachable URL of the thumbnail. If you
       don't provide a thumbnail URL, the platform displays a blank placeholder
-      thumbnail until the user's device downloads the file.  Maximum 25 KB.
+      thumbnail until the user's device downloads the file. Maximum 25 KB.
       Supported content types: image/jpeg, image/jpg, image/png
   """
 
@@ -186,6 +172,9 @@ class BusinessMessagesMessage(_messages.Message):
   r"""A message in a conversation between an agent and a user.
 
   Fields:
+    containsRichText: Optional. If `true`, indicates that the message contains
+      rich text. If the message contains invalid formatting, Business Messages
+      returns an error.
     fallback: Optional. Fallback text that displays if the user's device
       doesn't support the message type or content.
     messageId: The unique identifier of the message, assigned by the agent. If
@@ -200,20 +189,21 @@ class BusinessMessagesMessage(_messages.Message):
     richCard: Rich Card message.
     suggestions: A list of suggested replies that appear as a list of
       suggestion chips following the associated message. Maximum 13
-      suggestions.  The chips only display when the associated message is the
+      suggestions. The chips only display when the associated message is the
       most recent message within the conversation (including both agent and
       user messages). The user can tap a suggested reply to send the text
       reply to the agent.
     text: Text message.
   """
 
-  fallback = _messages.StringField(1)
-  messageId = _messages.StringField(2)
-  name = _messages.StringField(3)
-  representative = _messages.MessageField('BusinessMessagesRepresentative', 4)
-  richCard = _messages.MessageField('BusinessMessagesRichCard', 5)
-  suggestions = _messages.MessageField('BusinessMessagesSuggestion', 6, repeated=True)
-  text = _messages.StringField(7)
+  containsRichText = _messages.BooleanField(1)
+  fallback = _messages.StringField(2)
+  messageId = _messages.StringField(3)
+  name = _messages.StringField(4)
+  representative = _messages.MessageField('BusinessMessagesRepresentative', 5)
+  richCard = _messages.MessageField('BusinessMessagesRichCard', 6)
+  suggestions = _messages.MessageField('BusinessMessagesSuggestion', 7, repeated=True)
+  text = _messages.StringField(8)
 
 
 class BusinessMessagesOpenUrlAction(_messages.Message):
@@ -235,8 +225,13 @@ class BusinessMessagesRepresentative(_messages.Message):
 
   Fields:
     avatarImage: Optional. The representative's avatar image, as a publicly
-      available URL. Displays as a circle.  Images must be 1024x1024 px and
-      have a maximum files size of 50 KB.
+      available URL. Displays as a circle. Avatar images don't support
+      personal information, such as depictions of representatives in
+      photographs or illustrations. Use images that don't identify
+      individuals, such as icons, logos, or fictitious illustrations. After an
+      avatar image is used in a message, the image can't be modified or
+      deleted. Images must be 1024x1024 px and have a maximum files size of 50
+      KB.
     displayName: Optional. Name of the representative.
     representativeType: Required. The type of representative.
   """
@@ -458,4 +453,3 @@ encoding.AddCustomJsonEnumMapping(
     StandardQueryParameters.FXgafvValueValuesEnum, '_1', '1')
 encoding.AddCustomJsonEnumMapping(
     StandardQueryParameters.FXgafvValueValuesEnum, '_2', '2')
-
