@@ -19,7 +19,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="google-businessmessages",
-    version="1.0.2",
+    version="1.0.3",
     author="Google LLC",
     author_email="googleapis-packages@google.com",
     description="Google's Business Messages API client library",
