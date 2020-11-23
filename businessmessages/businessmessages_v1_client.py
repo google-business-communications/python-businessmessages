@@ -107,7 +107,7 @@ class BusinessmessagesV1(base_api.BaseApiClient):
         method_id=u'businessmessages.conversations.messages.create',
         ordered_params=[u'parent'],
         path_params=[u'parent'],
-        query_params=[],
+        query_params=[u'forceFallback'],
         relative_path=u'v1/{+parent}/messages',
         request_field=u'businessMessagesMessage',
         request_type_name=u'BusinessmessagesConversationsMessagesCreateRequest',
