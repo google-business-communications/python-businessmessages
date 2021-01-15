@@ -8,17 +8,17 @@ class BusinessmessagesV1(base_api.BaseApiClient):
   """Generated client library for service businessmessages version v1."""
 
   MESSAGES_MODULE = messages
-  BASE_URL = u'https://businessmessages.googleapis.com/'
-  MTLS_BASE_URL = u'https://businessmessages.mtls.googleapis.com/'
+  BASE_URL = 'https://businessmessages.googleapis.com/'
+  MTLS_BASE_URL = 'https://businessmessages.mtls.googleapis.com/'
 
-  _PACKAGE = u'businessmessages'
+  _PACKAGE = 'businessmessages'
   _SCOPES = ['https://www.googleapis.com/auth/userinfo.email']
-  _VERSION = u'v1'
+  _VERSION = 'v1'
   _CLIENT_ID = '1042881264118.apps.googleusercontent.com'
   _CLIENT_SECRET = 'x_Tw5K8nnjoRAqULM9PFAC2b'
   _USER_AGENT = 'x_Tw5K8nnjoRAqULM9PFAC2b'
-  _CLIENT_CLASS_NAME = u'BusinessmessagesV1'
-  _URL_VERSION = u'v1'
+  _CLIENT_CLASS_NAME = 'BusinessmessagesV1'
+  _URL_VERSION = 'v1'
   _API_KEY = None
 
   def __init__(self, url='', credentials=None,
@@ -44,7 +44,7 @@ class BusinessmessagesV1(base_api.BaseApiClient):
   class ConversationsEventsService(base_api.BaseApiService):
     """Service class for the conversations_events resource."""
 
-    _NAME = u'conversations_events'
+    _NAME = 'conversations_events'
 
     def __init__(self, client):
       super(BusinessmessagesV1.ConversationsEventsService, self).__init__(client)
@@ -65,23 +65,23 @@ class BusinessmessagesV1(base_api.BaseApiClient):
           config, request, global_params=global_params)
 
     Create.method_config = lambda: base_api.ApiMethodInfo(
-        flat_path=u'v1/conversations/{conversationsId}/events',
-        http_method=u'POST',
-        method_id=u'businessmessages.conversations.events.create',
-        ordered_params=[u'parent'],
-        path_params=[u'parent'],
-        query_params=[u'eventId'],
-        relative_path=u'v1/{+parent}/events',
-        request_field=u'businessMessagesEvent',
-        request_type_name=u'BusinessmessagesConversationsEventsCreateRequest',
-        response_type_name=u'BusinessMessagesEvent',
+        flat_path='v1/conversations/{conversationsId}/events',
+        http_method='POST',
+        method_id='businessmessages.conversations.events.create',
+        ordered_params=['parent'],
+        path_params=['parent'],
+        query_params=['eventId'],
+        relative_path='v1/{+parent}/events',
+        request_field='businessMessagesEvent',
+        request_type_name='BusinessmessagesConversationsEventsCreateRequest',
+        response_type_name='BusinessMessagesEvent',
         supports_download=False,
     )
 
   class ConversationsMessagesService(base_api.BaseApiService):
     """Service class for the conversations_messages resource."""
 
-    _NAME = u'conversations_messages'
+    _NAME = 'conversations_messages'
 
     def __init__(self, client):
       super(BusinessmessagesV1.ConversationsMessagesService, self).__init__(client)
@@ -102,23 +102,23 @@ class BusinessmessagesV1(base_api.BaseApiClient):
           config, request, global_params=global_params)
 
     Create.method_config = lambda: base_api.ApiMethodInfo(
-        flat_path=u'v1/conversations/{conversationsId}/messages',
-        http_method=u'POST',
-        method_id=u'businessmessages.conversations.messages.create',
-        ordered_params=[u'parent'],
-        path_params=[u'parent'],
-        query_params=[u'forceFallback'],
-        relative_path=u'v1/{+parent}/messages',
-        request_field=u'businessMessagesMessage',
-        request_type_name=u'BusinessmessagesConversationsMessagesCreateRequest',
-        response_type_name=u'BusinessMessagesMessage',
+        flat_path='v1/conversations/{conversationsId}/messages',
+        http_method='POST',
+        method_id='businessmessages.conversations.messages.create',
+        ordered_params=['parent'],
+        path_params=['parent'],
+        query_params=['forceFallback'],
+        relative_path='v1/{+parent}/messages',
+        request_field='businessMessagesMessage',
+        request_type_name='BusinessmessagesConversationsMessagesCreateRequest',
+        response_type_name='BusinessMessagesMessage',
         supports_download=False,
     )
 
   class ConversationsSurveysService(base_api.BaseApiService):
     """Service class for the conversations_surveys resource."""
 
-    _NAME = u'conversations_surveys'
+    _NAME = 'conversations_surveys'
 
     def __init__(self, client):
       super(BusinessmessagesV1.ConversationsSurveysService, self).__init__(client)
@@ -139,23 +139,23 @@ class BusinessmessagesV1(base_api.BaseApiClient):
           config, request, global_params=global_params)
 
     Create.method_config = lambda: base_api.ApiMethodInfo(
-        flat_path=u'v1/conversations/{conversationsId}/surveys',
-        http_method=u'POST',
-        method_id=u'businessmessages.conversations.surveys.create',
-        ordered_params=[u'parent'],
-        path_params=[u'parent'],
-        query_params=[u'surveyId'],
-        relative_path=u'v1/{+parent}/surveys',
-        request_field=u'businessMessagesSurvey',
-        request_type_name=u'BusinessmessagesConversationsSurveysCreateRequest',
-        response_type_name=u'BusinessMessagesSurvey',
+        flat_path='v1/conversations/{conversationsId}/surveys',
+        http_method='POST',
+        method_id='businessmessages.conversations.surveys.create',
+        ordered_params=['parent'],
+        path_params=['parent'],
+        query_params=['surveyId'],
+        relative_path='v1/{+parent}/surveys',
+        request_field='businessMessagesSurvey',
+        request_type_name='BusinessmessagesConversationsSurveysCreateRequest',
+        response_type_name='BusinessMessagesSurvey',
         supports_download=False,
     )
 
   class ConversationsService(base_api.BaseApiService):
     """Service class for the conversations resource."""
 
-    _NAME = u'conversations'
+    _NAME = 'conversations'
 
     def __init__(self, client):
       super(BusinessmessagesV1.ConversationsService, self).__init__(client)

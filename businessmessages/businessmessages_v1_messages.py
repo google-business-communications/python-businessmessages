@@ -160,6 +160,17 @@ class BusinessMessagesEvent(_messages.Message):
   representative = _messages.MessageField('BusinessMessagesRepresentative', 3)
 
 
+class BusinessMessagesImage(_messages.Message):
+  r"""An image.
+
+  Fields:
+    contentInfo: Information about an image, including the URL of the image
+      and the URL of the image's thumbnail.
+  """
+
+  contentInfo = _messages.MessageField('BusinessMessagesContentInfo', 1)
+
+
 class BusinessMessagesLiveAgentRequest(_messages.Message):
   r"""When tapped, sends a request for a live agent to join the conversation.
   """
@@ -206,9 +217,10 @@ class BusinessMessagesMessage(_messages.Message):
       returns an error.
     fallback: Optional. Fallback text that displays if the user's device
       doesn't support the message type or content.
-    messageId: The unique identifier of the message, assigned by the agent. If
-      a message attempts to use the same `messageId` as a previous message,
-      Business Messages returns an `ALREADY_EXISTS` error.
+    image: Image message.
+    messageId: Required. The unique identifier of the message, assigned by the
+      agent. If a message attempts to use the same `messageId` as a previous
+      message, Business Messages returns an `ALREADY_EXISTS` error.
     name: The name of the message, as set by Business Messages. Resolves to
       "conversations/{conversationId}/messages/{messageId}", where
       {conversationId} is the unique ID for the conversation and {messageId}
@@ -227,12 +239,13 @@ class BusinessMessagesMessage(_messages.Message):
 
   containsRichText = _messages.BooleanField(1)
   fallback = _messages.StringField(2)
-  messageId = _messages.StringField(3)
-  name = _messages.StringField(4)
-  representative = _messages.MessageField('BusinessMessagesRepresentative', 5)
-  richCard = _messages.MessageField('BusinessMessagesRichCard', 6)
-  suggestions = _messages.MessageField('BusinessMessagesSuggestion', 7, repeated=True)
-  text = _messages.StringField(8)
+  image = _messages.MessageField('BusinessMessagesImage', 3)
+  messageId = _messages.StringField(4)
+  name = _messages.StringField(5)
+  representative = _messages.MessageField('BusinessMessagesRepresentative', 6)
+  richCard = _messages.MessageField('BusinessMessagesRichCard', 7)
+  suggestions = _messages.MessageField('BusinessMessagesSuggestion', 8, repeated=True)
+  text = _messages.StringField(9)
 
 
 class BusinessMessagesOpenUrlAction(_messages.Message):
@@ -471,7 +484,7 @@ class StandardQueryParameters(_messages.Message):
 
   f__xgafv = _messages.EnumField('FXgafvValueValuesEnum', 1)
   access_token = _messages.StringField(2)
-  alt = _messages.EnumField('AltValueValuesEnum', 3, default=u'json')
+  alt = _messages.EnumField('AltValueValuesEnum', 3, default='json')
   callback = _messages.StringField(4)
   fields = _messages.StringField(5)
   key = _messages.StringField(6)
